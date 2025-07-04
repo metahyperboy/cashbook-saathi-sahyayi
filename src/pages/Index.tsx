@@ -6,9 +6,11 @@ import CompactFinancialCard from '@/components/CompactFinancialCard';
 import RecentTransactions from '@/components/RecentTransactions';
 import BottomNavigation from '@/components/BottomNavigation';
 import VoiceAssistant from '@/components/VoiceAssistant';
+import SettingsMenu from '@/components/SettingsMenu';
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const userName = "രാജു";
 
   const handleTabChange = (tab: string) => {
@@ -16,10 +18,19 @@ const Index = () => {
     console.log(`Switched to ${tab} tab`);
   };
 
+  const handleSettingsClick = () => {
+    setIsSettingsOpen(true);
+  };
+
+  const handleCalculatorClick = () => {
+    console.log('Calculator clicked');
+    setIsSettingsOpen(false);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50 flex flex-col">
       {/* Compact Header */}
-      <CompactHeader userName={userName} />
+      <CompactHeader userName={userName} onSettingsClick={handleSettingsClick} />
 
       {/* Main Content */}
       <main className="flex-1 pb-20 overflow-y-auto">
@@ -52,7 +63,7 @@ const Index = () => {
 
         {/* Recent Transactions */}
         <section className="flex-1">
-          <RecentTransactions />
+          <RecentTransactions onCalculatorClick={handleCalculatorClick} />
         </section>
       </main>
 
@@ -61,6 +72,13 @@ const Index = () => {
 
       {/* Voice Assistant Widget */}
       <VoiceAssistant />
+
+      {/* Settings Menu */}
+      <SettingsMenu 
+        isOpen={isSettingsOpen} 
+        onClose={() => setIsSettingsOpen(false)}
+        onCalculatorClick={handleCalculatorClick}
+      />
     </div>
   );
 };

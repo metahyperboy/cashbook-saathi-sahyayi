@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ChartBar, Mic, Box, Handshake, Calculator } from 'lucide-react';
+import { ChartBar, Mic, Box, Handshake } from 'lucide-react';
 
 interface BottomNavigationProps {
   activeTab: string;
@@ -13,7 +13,6 @@ const BottomNavigation: React.FC<BottomNavigationProps> = ({ activeTab, onTabCha
     { id: 'voice', icon: Mic, label: 'Voice', malayalam: 'വോയ്സ്' },
     { id: 'inventory', icon: Box, label: 'Inventory', malayalam: 'ഇൻവെന്ററി' },
     { id: 'borrow', icon: Handshake, label: 'Borrow', malayalam: 'കടം' },
-    { id: 'calculator', icon: Calculator, label: 'Calculator', malayalam: 'കാൽക്കുലേറ്റർ' },
   ];
 
   return (
@@ -27,13 +26,13 @@ const BottomNavigation: React.FC<BottomNavigationProps> = ({ activeTab, onTabCha
             <button
               key={tab.id}
               onClick={() => onTabChange(tab.id)}
-              className={`flex flex-col items-center justify-center min-h-[44px] px-2 py-1 rounded-lg transition-colors ${
+              className={`flex flex-col items-center justify-center min-h-[44px] px-2 py-1 rounded-lg transition-colors flex-1 ${
                 isActive 
                   ? 'text-blue-600 bg-blue-50' 
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
-              <Icon className="w-5 h-5" />
+              <Icon className="w-4 h-4" />
               <span className="text-xs font-medium mt-1">{tab.label}</span>
               <span className="text-xs text-gray-500">{tab.malayalam}</span>
             </button>
