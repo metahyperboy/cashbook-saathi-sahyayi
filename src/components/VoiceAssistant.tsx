@@ -11,32 +11,31 @@ const VoiceAssistant: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-20 right-4 z-30">
       <div className="relative">
         {/* Pulse animation when listening */}
         {isListening && (
           <div className="absolute inset-0 rounded-full bg-blue-400 animate-ping opacity-30"></div>
         )}
         
-        {/* Main voice button */}
+        {/* Main voice button - smaller for mobile */}
         <button
           onClick={handleVoiceToggle}
-          className={`relative p-4 rounded-full shadow-2xl transition-all duration-300 ${
+          className={`relative p-3 rounded-full shadow-lg transition-all duration-300 ${
             isListening 
               ? 'bg-red-500 hover:bg-red-600 scale-110' 
               : 'gradient-blue-green hover:scale-105'
           }`}
         >
           <Mic 
-            className={`w-6 h-6 text-white ${isListening ? 'animate-pulse' : ''}`}
+            className={`w-5 h-5 text-white ${isListening ? 'animate-pulse' : ''}`}
           />
         </button>
         
-        {/* Activation indicator */}
+        {/* Activation indicator - compact */}
         {isListening && (
-          <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-white px-3 py-1 rounded-lg shadow-lg border">
+          <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-white px-2 py-1 rounded-lg shadow-lg border">
             <p className="text-xs font-medium text-gray-700">Listening...</p>
-            <p className="text-xs text-gray-500">Say "Hey CashBook"</p>
           </div>
         )}
       </div>
