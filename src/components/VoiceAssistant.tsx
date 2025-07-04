@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Microphone } from 'lucide-react';
+import { Mic } from 'lucide-react';
 
 const VoiceAssistant: React.FC = () => {
   const [isListening, setIsListening] = useState(false);
@@ -27,7 +27,7 @@ const VoiceAssistant: React.FC = () => {
               : 'gradient-blue-green hover:scale-105'
           }`}
         >
-          <Microphone 
+          <Mic 
             className={`w-6 h-6 text-white ${isListening ? 'animate-pulse' : ''}`}
           />
         </button>

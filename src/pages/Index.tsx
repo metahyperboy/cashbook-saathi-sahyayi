@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { ChartBar, Microphone, Box, Handshake, Calculator, TrendingUp, TrendingDown, DollarSign } from 'lucide-react';
+import { ChartBar, Mic, Box, Handshake, Calculator, TrendingUp, TrendingDown, DollarSign } from 'lucide-react';
 import FinancialSummaryCard from '@/components/FinancialSummaryCard';
 import FeatureCard from '@/components/FeatureCard';
 import ChartSection from '@/components/ChartSection';
@@ -91,7 +90,7 @@ const Index = () => {
             <FeatureCard
               title="Voice Assistant"
               malayalamTitle="വോയ്സ് അസിസ്റ്റന്റ്"
-              icon={<Microphone className="w-8 h-8" />}
+              icon={<Mic className="w-8 h-8" />}
               onClick={() => handleFeatureClick('voice')}
             />
             <FeatureCard
@@ -160,7 +159,7 @@ const Index = () => {
                   <div className="flex items-center space-x-3">
                     {transaction.voice && (
                       <div className="p-1 bg-blue-100 rounded-full">
-                        <Microphone className="w-3 h-3 text-blue-600" />
+                        <Mic className="w-3 h-3 text-blue-600" />
                       </div>
                     )}
                     <span className={`font-semibold ${transaction.type === 'Income' ? 'text-green-600' : 'text-red-600'}`}>
